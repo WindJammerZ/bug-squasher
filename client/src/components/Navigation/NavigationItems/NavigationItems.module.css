@@ -1,0 +1,13 @@
+.NavigationItems {
+    margin: 0;
+    padding: 0;
+    background: blue;
+    color: white;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+}

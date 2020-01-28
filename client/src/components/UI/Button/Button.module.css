@@ -1,0 +1,95 @@
+.Button {
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid transparent;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+.Button:first-of-type {
+    margin-left: 0;
+}
+
+.Button:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+    border: 1px solid lightgray;
+    color: grey;
+}
+
+.Button:hover,
+.Button:active {
+    background-color: yellow;
+    border: 1px solid orangered;
+    color: orangered;
+}
+
+.PanelButton {
+    margin: .5rem;
+    padding: .5rem;
+    background: blue;
+}
+
+.Success,
+.Danger {
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 5%;
+}
+
+.Success {
+    background: green;
+}
+
+.Danger {
+    background: red
+}
+
+.AssignButton,
+.CloseButton,
+.DeleteButton,
+.EditButton {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .7rem;
+    font-weight: bold;
+    margin: .5rem .15rem;
+    box-shadow: 2px 2px 2px black;
+    border: 1px solid white;
+}
+
+
+.CloseButton {
+    background-color: lightgreen;
+    color: black;
+}
+
+.DeleteButton {
+    background-color: red;
+    color: white;
+}
+
+.EditButton {
+    background-color: orange;
+    color: black;
+}
+
+.AssignButton {
+    background-color: lightblue;
+    color: black;
+}
+
+.ExitButton {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+}

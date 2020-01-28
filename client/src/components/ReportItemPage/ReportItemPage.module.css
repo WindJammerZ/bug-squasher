@@ -1,0 +1,76 @@
+.ReportItemPage {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 20.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.ReportItemPageClosed {
+    background: lightslategray;
+    text-decoration-line: line-through;
+}
+
+.ReportItemPageTextArea {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ReportItemPageText {
+    flex-grow: 1;
+    padding: .2rem .2rem;
+    margin: 0rem 2rem;
+}
+
+.ActionButtonsArea {}
+
+.Button {
+    width: 3.5rem;
+    height: 2rem;
+    border-radius: 10%;
+    font-size: .7rem;
+    font-weight: bold;
+    margin: 1rem .22rem;
+    box-shadow: 2px 2px 2px black;
+    border: 1px solid white;
+}
+
+.CloseButton {
+    background-color: lightgreen;
+    color: black;
+}
+
+.DeleteButton {
+    background-color: red;
+    color: white;
+    justify-content: flex-end;
+}
+
+.EditButton {
+    background-color: orange;
+    color: black;
+}
+
+.AssignButton {
+    background-color: lightblue;
+    color: black;
+}
+
+.Button:hover,
+.Button:active {
+    background-color: #A0DB41;
+    border: 1px solid #966909;
+    color: #966909;
+}
+
+.Button:disabled {
+    background-color: #C7C6C6;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    color: #888888;
+}
