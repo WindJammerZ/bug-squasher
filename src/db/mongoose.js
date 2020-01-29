@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGODB_URI, {
         console.log(`Connected to database`)
     })
     .catch(e => {
+        console.log('Not connected to database')
         const error = {
             message: e.message
         }
