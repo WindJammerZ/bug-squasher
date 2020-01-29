@@ -1,8 +1,8 @@
 const express = require('express')
 const cors = require('cors')
-require('./db/mongoose')
-const userRouter = require('./routers/user')
-const reportRouter = require('./routers/report')
+require('./src/db/mongoose')
+const userRouter = require('./src/routers/user')
+const reportRouter = require('./src/routers/report')
 const path = require('path')
 
 const app = express()
