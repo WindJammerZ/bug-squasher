@@ -11,8 +11,9 @@ mongoose.connect(process.env.MONGODB_URI, {
     })
     .catch(e => {
         console.log('Not connected to database')
-        const error = {
-            message: e.message
-        }
-        res.status(400).send(error)
+        console.log(`error: ${e}`)
+        // const error = {
+        //     message: e.message
+        // }
+        // res.status(400).send(error)
     })
