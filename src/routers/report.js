@@ -47,12 +47,10 @@ router.post('/', auth, async (req, res) => {
 
     const report = new Report({
         ...req.body,
-        // owner: admin._id,
         owner: {
             name: admin.name,
             id: admin._id
         },
-        // creator: req.user._id
         creator: {
             name: req.user.name,
             id: req.user._id
@@ -63,7 +61,10 @@ router.post('/', auth, async (req, res) => {
         await report.save()
         res.status(201).send(report)
     } catch (e) {
-        res.status(400).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 })
 
@@ -78,7 +79,10 @@ router.get('/', async (req, res) => {
         })
         res.send(reports)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -102,7 +106,10 @@ router.get('/me', auth, async (req, res) => {
         const sendReq = removeDuplicateObjectsByID([...req.user.creator, ...req.user.owner])
         res.send(sendReq)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 
 })
@@ -123,7 +130,10 @@ router.get('/:id', async (req, res) => {
 
         res.send(report)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
 
     }
 })
@@ -155,7 +165,7 @@ router.patch('/edit_fields/:id', auth, async (req, res) => {
 
         if (updates.includes(OWNER)) {
             newOwner = await User.findById({
-                _id: req.body.owner
+                _id: req.body.owner.id
             })
         }
 
@@ -163,9 +173,6 @@ router.patch('/edit_fields/:id', auth, async (req, res) => {
             if (update === OWNER) {
                 report[ASSIGNED] = true
                 report[STATUS] = `Assigned`
-                // const newOwner = await User.findById({
-                //     _id: req.body._id
-                // })
                 report[OWNER] = {
                     name: newOwner.name,
                     id: newOwner._id
@@ -179,7 +186,10 @@ router.patch('/edit_fields/:id', auth, async (req, res) => {
         res.send(report)
 
     } catch (e) {
-        res.status(400).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 })
 
@@ -248,7 +258,10 @@ router.patch('/assign/:id', auth, async (req, res) => {
         res.send(report)
 
     } catch (e) {
-        res.status(400).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 
 })
@@ -283,7 +296,10 @@ router.patch('/close/:id', auth, async (req, res) => {
         res.send(report)
 
     } catch (e) {
-        res.status(400).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 
 })
@@ -313,7 +329,10 @@ router.delete('/:id', auth, async (req, res) => {
 
         res.send(report)
     } catch (e) {
-        return res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 

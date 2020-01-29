@@ -21,7 +21,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
             })
 
             this.resInterceptor = axios.interceptors.response.use(res => res, error => {
-                
                 this.setState({
                     error: error.response.data
                 })
@@ -45,11 +44,10 @@ const withErrorHandler = (WrappedComponent, axios) => {
             <React.Fragment>
                 <Modal
                     show={this.state.error}
-                    modalClosed={this.errorConfirmedHandler}
-                    >
-                        <div className={classes.ErrorMsg}>
-                          {this.state.error ? this.state.error.message : null}
-                        </div>
+                    modalClosed={this.errorConfirmedHandler}>
+                    <div className={classes.ErrorMsg}>
+                        {this.state.error ? this.state.error.message : null}
+                    </div>
                 </Modal>
                 <WrappedComponent {...this.props}/>
             </React.Fragment>

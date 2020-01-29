@@ -29,21 +29,29 @@ router.post('/', async (req, res) => {
             token
         })
     } catch (e) {
-        res.status(400).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 })
 
 //User login
 router.post('/login', async (req, res) => {
+
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
+
         res.send({
             user,
             token
         })
     } catch (e) {
-        res.status(400).send()
+        const error = {
+            message: e.message
+        }
+        res.status(400).send(error)
     }
 })
 
@@ -57,7 +65,10 @@ router.post('/logout', auth, async (req, res) => {
         await req.user.save()
         res.send()
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -68,7 +79,10 @@ router.post('/logoutAll', auth, async (req, res) => {
         await req.user.save()
         res.send()
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -94,7 +108,10 @@ router.patch('/me', auth, async (req, res) => {
         await req.user.save()
         res.send(req.user)
     } catch (e) {
-        res.status(500).send(e)
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -104,7 +121,10 @@ router.delete('/me', auth, async (req, res) => {
         await req.user.remove()
         res.send(req.user)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -125,7 +145,10 @@ router.get('/role', async (req, res) => {
         const users = await User.findByRole(userRoles)
         res.send(users)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
@@ -138,7 +161,10 @@ router.get('/owner/:id', async (req, res) => {
         const users = await User.findById(userId)
         res.send(users)
     } catch (e) {
-        res.status(500).send()
+        const error = {
+            message: e.message
+        }
+        res.status(500).send(error)
     }
 })
 
