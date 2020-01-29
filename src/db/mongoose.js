@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-console.log(`MongoDB URI: ${process.env.MONGODB_URI}`)
-
 mongoose.connect(process.env.MONGODB_URI, {
         useCreateIndex: true,
         useFindAndModify: false,
@@ -14,16 +12,12 @@ mongoose.connect(process.env.MONGODB_URI, {
     })
     .catch(e => {
         console.log('Not connected to database')
-        console.log(`error: ${e}`)
-        console.log(`error reason: ${e.reason}`)
-        console.log(`stack trace:`)
+        console.log(e)
         console.log(e.stack)
-        // const error = {
-        //     message: e.message
-        // }
-        // res.status(400).send(error)
     })
 
 mongoose.connection.on('error', e => {
-    console.log(`error during connection: ${e}`)
+    console.log(`error during connection:`)
+    console.log(e)
+    console.log(e.stack)
 })
