@@ -5,7 +5,6 @@ const TOKEN = 'token'
 const EXPIRATION_DATE = 'expirationDate'
 const USER_ID = 'userId'
 const USER_NAME = 'userName'
-// const USER_ROLE = 'userRole'
 
 export const authStart = () => {
     return {
@@ -33,7 +32,7 @@ export const authFail = (error) => {
 export const signup = (signupData) => {
     return dispatch => {
         dispatch(authStart())
-        const url = `/users/`
+        const url = `/api/users/`
 
         axios.post(url, signupData)
             .then(res => {
@@ -50,7 +49,7 @@ export const logout = (filter = '') => {
     const token = localStorage.getItem(TOKEN)
 
     if (token) {
-        const url = `/users/logout${filter}`
+        const url = `/api/users/logout${filter}`
         const data = {}
         const config = {
             headers: {
@@ -93,7 +92,7 @@ export const auth = (email, password) => {
             returnSecureToken: true
         }
 
-        let url = `/users/login`
+        let url = `/api/users/login`
 
         //TODO fix expirationDate
         axios.post(url, authData)
@@ -136,7 +135,7 @@ export const authCheckState = () => {
         if (!token) {
             dispatch(logout())
         } else {
-            const url = `/users/me`
+            const url = `/api/users/me`
             const config = {
                 headers: {
                     'Content-type': 'application/json',

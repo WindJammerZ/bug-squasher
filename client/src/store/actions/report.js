@@ -19,7 +19,7 @@ export const addReportFinished = () => {
 export const addReport = (reportData, token = null) => {
     return dispatch => {
 
-        const url = `/reports/`
+        const url = `/api/reports/`
         const config = {
             headers: {
                 'Content-type': 'application/json',
@@ -44,7 +44,7 @@ export const addReport = (reportData, token = null) => {
 export const closeReport = (reportId, token = null) => {
     return dispatch => {
 
-        const url = `/reports/close/${reportId}`
+        const url = `/api/reports/close/${reportId}`
         const data = {}
         const config = {
             headers: {
@@ -93,7 +93,7 @@ export const closeReportFinish = () => {
 export const deleteReport = (reportId, token = null) => {
     return dispatch => {
 
-        const url = `/reports/${reportId}`
+        const url = `/api/reports/${reportId}`
         const config = {
             headers: {
                 'Content-type': 'application/json',
@@ -167,7 +167,7 @@ export const getReports = (filter = '', token = null) => {
     return dispatch => {
         dispatch(setReportLoading())
 
-        let url = `/reports/${filter}`
+        let url = `/api/reports/${filter}`
         const data = {}
         const config = setupAPIData(data, token)
 

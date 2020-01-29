@@ -39,7 +39,7 @@ export const initAppSuccess = () => {
 export const getRole = (userRoles) => {
     return dispatch => {
 
-        const url = `/users/role`
+        const url = `/api/users/role`
         let queryArray = []
 
         userRoles.forEach(userRole => queryArray.push(Object.assign({}, {

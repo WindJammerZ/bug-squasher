@@ -9,7 +9,7 @@ export const getOwner = (ownerId) => {
     return dispatch => {
         dispatch(getOwnerStart())
 
-        const url = `/users/owner/${ownerId}`
+        const url = `/api/users/owner/${ownerId}`
         const config = {}
 
         return axios.get(url, config)
@@ -46,7 +46,7 @@ export const editReport = (reportId, reportData, token = null) => {
     return dispatch => {
         dispatch(editReportStart())
 
-        const url = `/reports/edit_fields/${reportId}`
+        const url = `/api/reports/edit_fields/${reportId}`
         const config = {
             headers: {
                 'Content-type': 'application/json',
@@ -93,7 +93,7 @@ export const assignReport = (reportId, reportData, token = null) => {
 
         dispatch(assignReportStart())
 
-        const url = `/reports/assign/${reportId}`
+        const url = `/api/reports/assign/${reportId}`
         const config = {
             headers: {
                 'Content-type': 'application/json',
