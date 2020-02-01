@@ -24,7 +24,14 @@ Download or clone the repo
 git clone https://github.com/<your-user-name>/bug-squasher.git
 ```
 
-You will need to create a dev.env file in the config folder and create the following environment variables:
+You will need to create a config folder in the root directory with a dev.env file inside as such:
+```
+root directory
+└─ config
+   └─ dev.env
+```
+
+Then create the following environment variables inside of dev.env:
 ```
 PORT=<insert the port you want the backend server to listen on such as 5000>
 MONGODB_URI='<insert your MongoDB connection string>'
