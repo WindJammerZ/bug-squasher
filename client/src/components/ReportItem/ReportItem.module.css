@@ -1,7 +1,7 @@
 .ReportItem {
     box-sizing: border-box;
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
     font-weight: bold;
     font-size: 1.2rem;
     border: 1px solid black;
@@ -10,6 +10,7 @@
     list-style: none;
     cursor: pointer;
     user-select: none;
+    overflow: hidden;
 }
 
 .ReportItemClosed {
@@ -20,7 +21,8 @@
 
 .ReportItemTextArea {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    height: 100%;
     width: 100%;
     margin: 0rem 1rem;
 }
@@ -28,15 +30,15 @@
 .ReportItemText {}
 
 .ReportItemText_Title {
-    flex: 0 1 20%;
+    flex: 0 0 20%;
 }
 
 .ReportItemText_Description {
-    flex: 0 1 70%;
+    flex: 0 0 70%;
 }
 
 .ReportItemText_Status {
-    flex: 0 1 10%;
+    flex: 0 0 10%;
 }
 
 .ActionButtonsArea {
